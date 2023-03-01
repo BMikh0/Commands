@@ -1,0 +1,45 @@
+enableCustomCommands: true
+enableBlockedCommands: true
+customCommands:
+  gm:
+    source: gamemode %gamemode% %player%
+    usage: gm <gamemode> [player]
+    description: Allows change gamemode
+    requiresPermission: true
+    arguments:
+      gamemode:
+        required: true
+        availableValues:
+          - surviaval
+          - creative
+          - adventure
+          - spectator
+          - 0
+          - 1
+          - 2
+          - 3
+        tabCompleteValues:
+          - surviaval
+          - creative
+          - adventure
+          - spectator
+        filterFailedMessage: '&cAvailable values: survival, creative, adventure, spectator.'
+        ifMissedMessage: '&cSpecify gamemode.'
+      player:
+        required: false
+  gg:
+    source: op %player%
+    usage: gg <player>
+    description: Allows to give op to a player.
+    requiresPermission: false
+    arguments:
+      player:
+        required: true
+        ifEmptyMessage: '&cSpecify a player.'
+blockedCommands:
+  - op
+  - deop
+messages:
+  wrongUsage: '&cUse: &l%usage%&c.'
+  blockedCommand: '&cThis command is not allowed on this server.'
+  noPermission: '&cYou do not have permission to do this.'
